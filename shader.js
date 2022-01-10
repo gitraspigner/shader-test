@@ -21,7 +21,6 @@ function getShader(_renderer) {
   `;
 
 	const frag = `
-    // frag needs this to run natively, dont ask why
     #ifdef GL_ES
     precision mediump float;
     #endif
@@ -34,6 +33,9 @@ function getShader(_renderer) {
       // of the current fragment
 
       vec2 st = gl_FragCoord.xy/u_resolution.xy
+      
+      // currently this line of code makes a gradient based on
+      // the position of pixel on the canvas
       gl_FragColor = vec4(st.x, 0.0, 0.0, 1.0);
     }
 	`;
