@@ -9,15 +9,21 @@ function preload() {
 function setup() {
   // shaders require WEBGL
   // vars for fullscreen in browser:
-  // windowWidth, WindowHeight
+  // windowWidth, windowHeight
+
+  // disables scaling for retina screens which can create inconsistent scaling
+  // between displays
+  pixelDensity(1);
   createCanvas(windowWidth, windowHeight, WEBGL);
+
 
   // shader() sets the active shader with our shader
   shader(theShader);
-  //noStroke();
+  noStroke();
 }
 
 function draw() {
+  //shader(theShader);
   // send resulotion of sketch into shader
   theShader.setUniform('u_resolution', [width, height]);
 
@@ -25,13 +31,13 @@ function draw() {
 
 
   // rect gives us some geometry on the screen
-  rect(0, 0, width, height);
+  rect(0,0,100,100);
 
 }
 
-//function windowResized() new Promise(function(resolve, reject) {
-//  resizeCanvas(windowWidth, windowHeight);
-//});
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 
 

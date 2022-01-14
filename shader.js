@@ -32,11 +32,11 @@ function getShader(_renderer) {
       // gl_FragCoord are the window relative coordinates
       // of the current fragment
 
-      vec2 st = gl_FragCoord.xy/u_resolution.xy
-      
+      vec2 st = gl_FragCoord.xy/u_resolution.xy;
+
       // currently this line of code makes a gradient based on
       // the position of pixel on the canvas
-      gl_FragColor = vec4(st.x, 0.0, 0.0, 1.0);
+      gl_FragColor = vec4(1.0, 1.35 - st.x, 1.0, 1.0);
     }
 	`;
 
